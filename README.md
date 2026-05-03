@@ -26,12 +26,6 @@ The project is best understood as a **descriptive analysis plus predictive proto
 
 This map visualizes where construction permit activity is concentrated across Austin, helping identify areas with stronger development pressure.
 
-### Random Forest Feature Importance
-
-![Random forest feature importance chart showing the strongest predictors of added construction square footage.](images/forest.jpeg)
-
-The random forest model suggests that location-based and permit-related variables are among the strongest predictors of added square footage.
-
 ## Business Question
 
 Where is construction activity concentrated in Austin, and can permit metadata help predict added square footage as a proxy for development intensity?
