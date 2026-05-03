@@ -1,10 +1,36 @@
 # Forecasting Urban Growth in Austin with Construction Permit Data
 
+## At a Glance
+
+| Area | Detail |
+|---|---|
+| Dataset | City of Austin construction permits |
+| Tools | Python, Pandas, Scikit-learn, Matplotlib |
+| Focus | ZIP-level construction intensity and added square footage modeling |
+| Target | TotalNewAddSQFT |
+| Model | Random forest regression |
+| Best use case | Urban growth analysis and infrastructure planning signals |
+| Caution | Predictive, not causal; not a production forecast |
+
 ## Executive Summary
 
 This project analyzes City of Austin construction permit data to identify where new development is concentrated and to test whether permit-level features can help model added square footage.
 
 The project is best understood as a **descriptive analysis plus predictive prototype**. It uses construction permits as a faster-updating signal than census data, while treating model results cautiously.
+
+## Visual Highlights
+
+### Construction Permit Concentration Map
+
+![Austin construction permit concentration map showing geographic clusters of development activity.](images/conmap.png)
+
+This map visualizes where construction permit activity is concentrated across Austin, helping identify areas with stronger development pressure.
+
+### Random Forest Feature Importance
+
+![Random forest feature importance chart showing the strongest predictors of added construction square footage.](images/forest.jpeg)
+
+The random forest model suggests that location-based and permit-related variables are among the strongest predictors of added square footage.
 
 ## Business Question
 
@@ -39,7 +65,7 @@ Key fields used:
 
 ## Project Objective
 
-Austin growth affects housing, utilities, transportation, and infrastructure planning. This project asks:
+Austin's growth affects housing, utilities, transportation, and infrastructure planning. This project asks:
 
 1. Which Austin ZIP codes show the greatest concentration of new construction?
 2. Which permit-level features are most useful for modeling added square footage?
@@ -50,7 +76,7 @@ This is **not** a causal analysis. It does not prove that permits cause infrastr
 
 ### 1. Data Cleaning
 
-The analysis filters permit records to rows with positive `TotalNewAddSQFT`, coerces numeric fields, normalizes valuation fields, and removes records missing key geographic fields needed for ZIP-level and map-based analysis.
+The analysis filters permit records to rows with positive `TotalNewAddSQFT`, coerce numeric fields, normalize valuation fields, and remove records missing key geographic fields needed for ZIP-level and map-based analysis.
 
 ### 2. Exploratory Data Analysis
 
@@ -88,7 +114,7 @@ The project currently reports the following high-construction ZIP codes by added
 | 78748 | 70 million |
 | 78744 | 60 million |
 
-The project also reports that location-based fields such as ZIP code, latitude, and longitude are informative, with `NumberOfFloors` also contributing useful signal.
+The project also reports that location-based fields such as ZIP code, latitude, and longitude are informative, with `NumberOfFloors` also contributing a useful signal.
 
 ## Model Interpretation
 
@@ -97,7 +123,7 @@ The README previously reported:
 - random forest R² of 0.72
 - monthly time-series split R² of 0.66
 
-Those values suggest useful predictive signal, but they should be treated as provisional until the full validation strategy is documented end-to-end in reproducible scripts.
+Those values suggest a useful predictive signal, but they should be treated as provisional until the full validation strategy is documented end-to-end in reproducible scripts.
 
 ## Why Permit Data?
 
